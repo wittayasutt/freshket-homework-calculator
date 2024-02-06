@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useState } from 'react';
+import { useFoodStore } from '@/providers/FoodStoreProvider';
 import { Set } from '@/types/set';
 import Thumbnail from './thumbnail';
 import Stepper from './stepper';
@@ -30,13 +32,35 @@ const Description = styled.p`
 `;
 
 const Card = ({ set }: CardProps) => {
+	const [quantity, setQuantity] = useState<number>(0);
+	const foodStore = useFoodStore();
+
+	const handleUpdateQuantity = () => {
+		const updatedQuantity = foodStore.getQuantityById(set.id);
+		setQuantity(updatedQuantity);
+	};
+
+	const handleIncrementClick = () => {
+		foodStore.addItem(set);
+		handleUpdateQuantity();
+	};
+
+	const handleDecrementClick = () => {
+		foodStore.removeItem(set);
+		handleUpdateQuantity();
+	};
+
 	return (
 		<Wrapper>
 			<Content>
 				<Thumbnail color={set.color} label={set.name} />
 				{set.hasPromotion && <Description>get a 5% discount when buy 2</Description>}
 			</Content>
-			<Stepper number={0} onIncrementClick={() => {}} onDecrementClick={() => {}} />
+			<Stepper
+				number={quantity}
+				onIncrementClick={handleIncrementClick}
+				onDecrementClick={handleDecrementClick}
+			/>
 		</Wrapper>
 	);
 };
