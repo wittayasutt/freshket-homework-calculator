@@ -1,0 +1,51 @@
+[
+	{
+		"id": 1,
+		"name": "Red set",
+		"color": "red",
+		"price": 50,
+		"hasPromotion": false
+	},
+	{
+		"id": 2,
+		"name": "Green set",
+		"color": "green",
+		"price": 40,
+		"hasPromotion": true
+	},
+	{
+		"id": 3,
+		"name": "Blue set",
+		"color": "blue",
+		"price": 30,
+		"hasPromotion": false
+	},
+	{
+		"id": 4,
+		"name": "Yellow set",
+		"color": "yellow",
+		"price": 50,
+		"hasPromotion": false
+	},
+	{
+		"id": 5,
+		"name": "Pink set",
+		"color": "pink",
+		"price": 80,
+		"hasPromotion": true
+	},
+	{
+		"id": 6,
+		"name": "Purple set",
+		"color": "purple",
+		"price": 90,
+		"hasPromotion": false
+	},
+	{
+		"id": 7,
+		"name": "Orange set",
+		"color": "orange",
+		"price": 120,
+		"hasPromotion": true
+	}
+]

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Place } from '@/types/place';
+import { Set } from '@/types/set';
 import Thumbnail from './thumbnail';
-import Tags from './tags';
+import Stepper from './stepper';
 
 type CardProps = {
-	place: Place;
+	set: Set;
 };
 
 const Wrapper = styled.div`
@@ -19,12 +19,6 @@ const Wrapper = styled.div`
 	box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.1);
 
 	overflow: hidden;
-	cursor: pointer;
-	transition: box-shadow 0.2s;
-
-	&:hover {
-		box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.2);
-	}
 `;
 
 const Content = styled.div`
@@ -35,14 +29,14 @@ const Description = styled.p`
 	text-align: center;
 `;
 
-const Card = ({ place }: CardProps) => {
+const Card = ({ set }: CardProps) => {
 	return (
 		<Wrapper>
 			<Content>
-				<Thumbnail src={place.img_url} label={place.name} />
-				<Description>{place.body}</Description>
+				<Thumbnail color={set.color} label={set.name} />
+				{set.hasPromotion && <Description>get a 5% discount when buy 2</Description>}
 			</Content>
-			<Tags tags={place.tags} />
+			<Stepper number={0} onIncrementClick={() => {}} onDecrementClick={() => {}} />
 		</Wrapper>
 	);
 };

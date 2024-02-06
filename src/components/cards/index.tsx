@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Place } from '@/types/place';
+import { Set } from '@/types/set';
 import Card from './card';
 
 type CardsProps = {
-	places: Place[];
+	sets: Set[];
 };
 
 const Wrapper = styled.div`
@@ -33,12 +33,12 @@ const CardWrapper = styled.div`
 	}
 `;
 
-const Cards = ({ places }: CardsProps) => {
+const Cards = ({ sets }: CardsProps) => {
 	return (
 		<Wrapper>
-			{places.map((place) => (
-				<CardWrapper key={place.id} data-testid='card'>
-					<Card place={place} />
+			{sets.map((set) => (
+				<CardWrapper key={set.id} data-testid='card'>
+					<Card set={set} />
 				</CardWrapper>
 			))}
 		</Wrapper>

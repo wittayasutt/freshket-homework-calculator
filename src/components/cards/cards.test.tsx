@@ -6,19 +6,13 @@ import theme from '@/styles/theme';
 
 import Cards from './index';
 
-jest.mock('@/mocks/tags.json', () => [
-	{ id: 1, name: 'Brinebeast', type: 'Earth' },
-	{ id: 2, name: 'Goolu', type: 'Air' },
-	{ id: 3, name: 'Macaronifeet', type: 'Fire' },
-]);
-
 const wrapper = ({ children }: { children: ReactNode }) => {
 	return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 describe('cards', () => {
 	it('should not have found any cards', () => {
-		render(<Cards places={[]} />, { wrapper });
+		render(<Cards sets={[]} />, { wrapper });
 		expect(screen.queryByTestId('card')).not.toBeInTheDocument();
 	});
 
@@ -26,21 +20,21 @@ describe('cards', () => {
 		const mockData = [
 			{
 				id: 1,
-				tags: [1, 2, 3],
-				name: 'Saint Mopierre',
-				body: 'Saint Mopierre is a large city, known for being the birthplace of a music genre.',
-				img_url: 'https://picsum.photos/id/11/1000',
+				name: 'Red set',
+				color: 'red',
+				price: 50,
+				hasPromotion: false,
 			},
 			{
 				id: 2,
-				tags: [1],
-				name: 'Eulake',
-				body: 'Eulake is a small town situated besides a lake. It is known for its mining heritage.',
-				img_url: 'https://picsum.photos/id/11/1000',
+				name: 'Green set',
+				color: 'green',
+				price: 40,
+				hasPromotion: true,
 			},
 		];
 
-		render(<Cards places={mockData} />, { wrapper });
+		render(<Cards sets={mockData} />, { wrapper });
 		expect(screen.getAllByTestId('card')).toHaveLength(mockData.length);
 	});
 });

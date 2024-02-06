@@ -4,12 +4,12 @@ import '@/styles/global.css';
 import Container from '@/components/container';
 import Cards from '@/components/cards';
 
-import places from '@/mocks/places.json';
+import sets from '@/mocks/set.json';
 
 const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
-			<Container>{places?.length ? <Cards places={places} /> : null}</Container>
+			<Container>{sets?.length ? <Cards sets={sets} /> : null}</Container>
 		</ThemeProvider>
 	);
 };

@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 type ThumbnailProps = {
-	src: string;
+	color: string;
 	label: string;
+};
+
+type ImageProps = {
+	color: string;
 };
 
 const Wrapper = styled.div`
@@ -10,10 +14,11 @@ const Wrapper = styled.div`
 	flex-direction: column;
 `;
 
-const Image = styled.img`
+const Image = styled.div<ImageProps>`
 	width: 100%;
 	border-radius: 8px;
 	aspect-ratio: 1;
+	background-color: ${(props) => props.color};
 `;
 
 const Label = styled.div`
@@ -30,10 +35,10 @@ const Label = styled.div`
 	transform: translateY(-1.5rem);
 `;
 
-const Thumbnail = ({ src, label }: ThumbnailProps) => {
+const Thumbnail = ({ color, label }: ThumbnailProps) => {
 	return (
 		<Wrapper>
-			<Image src={src} alt={label} />
+			<Image color={color} />
 			<Label>{label}</Label>
 		</Wrapper>
 	);

@@ -12,12 +12,12 @@ const wrapper = ({ children }: { children: ReactNode }) => {
 
 describe('thumbnail', () => {
 	it('should not have found a label', () => {
-		render(<Thumbnail src='' label='' />, { wrapper });
+		render(<Thumbnail color='' label='' />, { wrapper });
 		expect(screen.queryByText('thumbnail')).not.toBeInTheDocument();
 	});
 
 	it('should have found a label named "thumbnail"', () => {
-		render(<Thumbnail src='' label='thumbnail' />, { wrapper });
+		render(<Thumbnail color='' label='thumbnail' />, { wrapper });
 		expect(screen.queryByText('thumbnail')).toBeInTheDocument();
 	});
 });
